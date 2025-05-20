@@ -11,7 +11,7 @@ class BackupController extends Controller
      */
     public function index()
     {
-        $url = 'http://127.0.0.1:8000/GetUser';
+        $url = 'https://appmonev.lamptkes.org/GetUser';
         // $apiKey = 'your_api_key_here';
 
         $ch = curl_init();
@@ -48,7 +48,7 @@ class BackupController extends Controller
     public function create()
     {
 
-        $url = 'http://127.0.0.1:8000/GetIsi';
+        $url = 'https://appmonev.lamptkes.org/GetIsi';
         // $apiKey = 'your_api_key_here';
 
         $ch = curl_init();
@@ -94,7 +94,7 @@ class BackupController extends Controller
     public function show()
     {
 
-        $url = 'http://127.0.0.1:8000/GetKeu';
+        $url = 'https://appmonev.lamptkes.org/GetKeu';
         // $apiKey = 'your_api_key_here';
 
         $ch = curl_init();
