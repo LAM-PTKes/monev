@@ -7,6 +7,7 @@ use App\Http\Controllers\RNDController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SPMIController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\MonevITController;
@@ -21,6 +22,10 @@ use App\Http\Controllers\SekretariatController;
 // });
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/GetUser', [BackupController::class, 'GetUser'])->name('GetUser');
+Route::get('/GetIsi', [BackupController::class, 'GetIsi'])->name('GetIsi');
+Route::get('/GetKeu', [BackupController::class, 'GetKeu'])->name('GetKeu');
+
 Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -34,6 +39,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/unit-kerja/store', [UnitKerjaController::class, 'store'])->name('sunitkerja');
         Route::get('/unit-kerja/edit', [UnitKerjaController::class, 'edit'])->name('eunitkerja');
         Route::delete('/unit-kerja/{id}/delete', [UnitKerjaController::class, 'destroy'])->name('dunitkerja');
+
+        Route::get('/user', [UserController::class, 'index'])->name('user');
+        Route::post('/user/store', [UserController::class, 'store'])->name('suser');
+        Route::get('/user/edit', [UserController::class, 'edit'])->name('euser');
+        Route::delete('/user/{id}/delete', [UserController::class, 'destroy'])->name('duser');
 
         Route::get('/role', [RoleController::class, 'index'])->name('role');
         Route::post('/role/store', [RoleController::class, 'store'])->name('srole');

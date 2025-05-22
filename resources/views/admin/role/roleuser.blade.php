@@ -15,6 +15,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Administrator</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Hak Akses</a></li>
                                 <li class="breadcrumb-item active">Role User</li>
                             </ol>
                         </div>
@@ -115,8 +116,8 @@
                                 <div class="form-group row">
                                     <label for="user_id" class="col-sm-3 control-label">User Name</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control select2 w-100" id="user_id" name="user_id" required
-                                            data-parsley-errors-container="#error-user_id">
+                                        <select class="form-control select2 w-100" id="user_id" name="user_id[]" required
+                                            data-parsley-errors-container="#error-user_id" multiple>
                                             <option value="">Select</option>
                                             @foreach ($user as $k)
                                                 <option value="{{ $k->id }}">{{ $k->name }}</option>
@@ -196,7 +197,7 @@
                                         <select class="form-control select2 w-100" id="euser_id" name="euser_id"
                                             required data-parsley-errors-container="#error-euser_id">
                                             <option value="">Select</option>
-                                            @foreach ($user as $k)
+                                            @foreach ($eusr as $k)
                                                 <option value="{{ $k->id }}">{{ $k->name }}</option>
                                             @endforeach
                                         </select>
@@ -256,7 +257,7 @@
 
                 $('#ModalEdit').modal('show');
                 $('#id').val(data[0]);
-                $('#euser_id').val(data[1]).trigger('change');
+                $('#euser_id').val(data[1]).attr('disabled', 'disabled').trigger('change');
                 $('#erole_id').val(data[2]).trigger('change');
                 $('#divedit').hide();
             });

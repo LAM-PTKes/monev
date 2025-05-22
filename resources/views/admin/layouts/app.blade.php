@@ -206,7 +206,7 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="{{ route('role') }}">User</a></li>
+                                    <li><a href="{{ route('user') }}">User</a></li>
                                     <li><a href="{{ route('role') }}">Role</a></li>
                                     <li><a href="{{ route('RoleUser') }}">Role User</a></li>
                                 </ul>

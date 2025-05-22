@@ -30,10 +30,13 @@ class RoleController extends Controller
         $role = Role::whereNotIn('role_name', ['Ngadimin'])->orderby('role_name')->get();
         $rl   = Role::where('role_name', 'Ngadimin')->get();
         $rusr = RoleUser::whereNotIn('role_id', collect($rl)->pluck('id'))->latest()->get();
-        $user = User::orderby('name')->get();
+        $cek  = RoleUser::where('role_id', collect($rl)->pluck('id'))->get();
+        $mg   = collect($rusr)->pluck('user_id')->merge(collect($cek)->pluck('user_id'))->unique()->toArray();
+        $user = User::whereNotIn('id', $mg)->orderby('name')->get();
+        $eusr = User::all();
 
-        // return $rusr;
-        return view('admin.role.roleuser', compact('no', 'role', 'user', 'rusr'));
+        // return $user;
+        return view('admin.role.roleuser', compact('no', 'role', 'user', 'rusr', 'eusr'));
     }
 
     /**
@@ -53,18 +56,23 @@ class RoleController extends Controller
      */
     public function show(Request $request)
     {
-        $cek  =  RoleUser::where('user_id', request('user_id'))->get();
 
-        if (count($cek) == 0) {
+        $usr = request('user_id');
 
-            $asup = RoleUser::create([
-                'user_id' => request('user_id'),
-                'role_id' => request('role_id')
-            ]);
-            return back()->withsuccess('Data berhasil disimpan');
-        } else {
-            return back()->witherror('User sudah Terdaftar');
+        foreach ($usr as $k) {
+            // echo $k . '<br>';
+            $cek = RoleUser::where('user_id', $k)->first();
+            if (!$cek) {
+                $asup = RoleUser::create(
+                    [
+                        'user_id' => $k,
+                        'role_id' => request('role_id')
+                    ]
+                );
+            }
         }
+
+        return back()->withsuccess('Data berhasil disimpan');
     }
 
     /**
@@ -93,7 +101,6 @@ class RoleController extends Controller
 
         if (count($dt) > 0) {
             $dt->first()->update([
-                'user_id' => request('euser_id'),
                 'role_id' => request('erole_id')
             ]);
             return back()->withsuccess('Data berhasil diupdate');
