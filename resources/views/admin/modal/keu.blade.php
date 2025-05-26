@@ -986,6 +986,7 @@
                                 <option value="">Select</option>
                                 <option value="1">Bulan & Tahun</option>
                                 <option value="2">Tahun</option>
+                                <option value="3">Semua Data</option>
                             </select>
                             <div id="error-cari"></div>
                         </div>

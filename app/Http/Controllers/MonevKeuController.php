@@ -328,6 +328,10 @@ class MonevKeuController extends Controller
             $mnv  = IsiMonev::whereIn('unit_id', collect($unit)->pluck('id'))->whereLike('tahun', '%' . $thn . '%')->latest()->get();
             $mnv1 = MonevKeuangan::where('kategori_form', 'Form 2')->whereLike('tahun', '%' . $thn . '%')->latest()->get();
             $mnv2 = MonevKeuangan::where('kategori_form', 'Form 3')->whereLike('tahun', '%' . $thn . '%')->latest()->get();
+        } elseif (request('cari') == '3') {
+            $mnv  = IsiMonev::whereIn('unit_id', collect($unit)->pluck('id'))->latest()->get();
+            $mnv1 = MonevKeuangan::where('kategori_form', 'Form 2')->latest()->get();
+            $mnv2 = MonevKeuangan::where('kategori_form', 'Form 3')->latest()->get();
         } else {
             $mnv = IsiMonev::whereIn('unit_id', collect($unit)->pluck('id'))
                 ->whereYear('tahun', request('tahun_doank'))
