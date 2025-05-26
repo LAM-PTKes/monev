@@ -29,7 +29,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
+{{-- <body
+    style="background-image: url('{{ asset('web/sss.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;"> --}}
+
 <body>
+
     @yield('content')
     <!-- Vendor js -->
     <script src="{{ asset('admin/assets/js/vendor.min.js') }}"></script>

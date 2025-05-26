@@ -1,6 +1,6 @@
-@extends('layouts.template')
+{{-- @extends('layouts.template')
 @section('title')
-    Login
+    Register
 @endsection
 @section('content')
     <div class="account-pages mt-5 mb-5">
@@ -71,8 +71,8 @@
 
                     <div class="row mt-5">
                         <div class="col-sm-12 text-center">
-                            <p class="text-muted">Already account? <a href="{{ route('login') }}"
-                                    class="text-primary ml-1"><b>Sign In</b></a></p>
+                            <p class="text-white">Already account? <a href="{{ route('login') }}"
+                                    class="text-info ml-1"><b>Sign In</b></a></p>
                         </div>
                     </div>
 
@@ -84,4 +84,6 @@
         <!-- end container -->
     </div>
     <!-- end page -->
-@endsection
+@endsection --}}
+
+{{ abort(404) }}

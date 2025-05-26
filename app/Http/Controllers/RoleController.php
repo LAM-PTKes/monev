@@ -136,11 +136,12 @@ class RoleController extends Controller
 
         if (count($dt) > 0) {
             $role = Role::where('role_name', 'User')->get();
-            $dt->first()->update([
-                'role_id' => $role->first()->id
-            ]);
-
-            return back()->withdelete('Role User diubah menjadi role default');
+            // $dt->first()->update([
+            //     'role_id' => $role->first()->id
+            // ]);
+            // return back()->withdelete('Role User diubah menjadi role default');
+            $dt->first()->delete();
+            return back()->withdelete('Data yang dihapus permanen tidak bisa dikembalikan');
         } else {
             return back()->witherror('Data tidak ditemukan');
         }

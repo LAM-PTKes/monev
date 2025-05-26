@@ -66,12 +66,12 @@
                     </div>
                     <!-- end card -->
 
-                    <div class="row mt-5">
+                    {{-- <div class="row mt-5">
                         <div class="col-sm-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="{{ route('register') }}"
-                                    class="text-primary ml-1"><b>Sign Up</b></a></p>
+                            <p class="text-white">Don't have an account? <a href="{{ route('register') }}"
+                                    class="text-info ml-1"><b>Sign Up</b></a></p>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
                 <!-- end col -->
