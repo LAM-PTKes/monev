@@ -144,6 +144,29 @@ class HomeController extends Controller
                 $ttl6 = IsiMonev::whereIn('unit_id', collect($unt6)->pluck('id'))->whereYear('tahun', $thn)->count();
                 $ttl7 = IsiMonev::whereIn('unit_id', collect($unt7)->pluck('id'))->whereYear('tahun', $thn)->count();
                 $ttl8 = IsiMonev::whereIn('unit_id', collect($unt8)->pluck('id'))->whereYear('tahun', $thn)->count();
+            } elseif ($cr == '3') {
+
+
+                $jml  = IsiMonev::whereIn('unit_id', collect($unt)->pluck('id'))->count();
+                $jml1 = IsiMonev::whereIn('unit_id', collect($unt1)->pluck('id'))->count();
+                $jml2 = IsiMonev::whereIn('unit_id', collect($unt2)->pluck('id'))->count();
+                $jml3 = IsiMonev::whereIn('unit_id', collect($unt3)->pluck('id'))->count();
+                $jml4 = IsiMonev::whereIn('unit_id', collect($unt4)->pluck('id'))->count();
+                $jml5 = IsiMonev::whereIn('unit_id', collect($unt5)->pluck('id'))->count();
+                $jml6 = IsiMonev::whereIn('unit_id', collect($unt6)->pluck('id'))->count();
+                $jml7 = IsiMonev::whereIn('unit_id', collect($unt7)->pluck('id'))->count();
+                $jml8 = IsiMonev::whereIn('unit_id', collect($unt7)->pluck('id'))->count();
+
+
+                $ttl  = IsiMonev::whereIn('unit_id', collect($unt)->pluck('id'))->count();
+                $ttl1 = IsiMonev::whereIn('unit_id', collect($unt1)->pluck('id'))->count();
+                $ttl2 = IsiMonev::whereIn('unit_id', collect($unt2)->pluck('id'))->count();
+                $ttl3 = IsiMonev::whereIn('unit_id', collect($unt3)->pluck('id'))->count();
+                $ttl4 = IsiMonev::whereIn('unit_id', collect($unt4)->pluck('id'))->count();
+                $ttl5 = IsiMonev::whereIn('unit_id', collect($unt5)->pluck('id'))->count();
+                $ttl6 = IsiMonev::whereIn('unit_id', collect($unt6)->pluck('id'))->count();
+                $ttl7 = IsiMonev::whereIn('unit_id', collect($unt7)->pluck('id'))->count();
+                $ttl8 = IsiMonev::whereIn('unit_id', collect($unt8)->pluck('id'))->count();
             } else {
 
                 $jml  = IsiMonev::whereIn('unit_id', collect($unt)->pluck('id'))->whereYear('tahun', date('Y'))->count();

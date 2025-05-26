@@ -20,7 +20,8 @@
                                 <option value="">Select</option>
                                 <option value="1">Bulan & Tahun</option>
                                 <option value="2">Tahun</option>
-                                <option value="3">Default</option>
+                                <option value="3">Semua Data</option>
+                                <option value="4">Default</option>
                             </select>
                             <div id="error-cari"></div>
                         </div>
