@@ -322,6 +322,8 @@ class MonevKeuController extends Controller
     {
 
         $no   = 1;
+        $nos  = 1;
+        $noss = 1;
         $unit = UnitKerja::whereLike('nama_unit', '%Unit Keuangan%', caseSensitive: false)->get();
         if (request('cari') == '1') {
             $thn  = Carbon::parse(request('bulan_tahun'))->format('Y-m');
@@ -370,9 +372,9 @@ class MonevKeuController extends Controller
             'Desember'
         ];
 
-        if (count($mnv) > 0) {
+        if (count($mnv) > 0 || count($mnv1) > 0 || count($mnv2) > 0) {
 
-            return view('admin.monev.keu', compact('no', 'unit', 'mnv', 'bulan', 'ganti', 'mnv1', 'mnv2'));
+            return view('admin.monev.keu', compact('no', 'nos', 'noss', 'unit', 'mnv', 'bulan', 'ganti', 'mnv1', 'mnv2'));
         } else {
             return back()->witherror("Data yang Anda cari tidak ditemukan");
         }
