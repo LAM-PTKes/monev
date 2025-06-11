@@ -109,8 +109,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'event@lamptkes.org'),
-        'name' => env('MAIL_FROM_NAME', 'No-Reply Notification IAAHEH/LAM-PTKes'),
+        'address' => env('MAIL_FROM_ADDRESS', 'admin@lamptkes.org'),
+        'name'    => env('MAIL_FROM_NAME', 'No-Reply Notification WebApp Monev Internal IAAHEH/LAM-PTKes'),
     ],
 
 ];
